@@ -2,9 +2,9 @@
 
 namespace Lagdo\UiBuilder\Flowbite\Component;
 
-use Lagdo\UiBuilder\Component\Base\PanelFooterComponent as BaseComponent;
+use Lagdo\UiBuilder\Component\Base\CardHeaderComponent as BaseComponent;
 
-class PanelFooterComponent extends BaseComponent
+class CardHeaderComponent extends BaseComponent
 {
     /**
      * @return void
@@ -12,7 +12,7 @@ class PanelFooterComponent extends BaseComponent
     protected function onCreate(): void
     {
         $this->element()->addClass('text-sm font-medium text-center text-body ' .
-            'bg-neutral-secondary-soft border-b border-default rounded-b-base');
+            'bg-neutral-secondary-soft border-b border-default rounded-t-base');
     }
 
     /**
