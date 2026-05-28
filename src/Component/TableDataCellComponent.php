@@ -2,11 +2,11 @@
 
 namespace Lagdo\UiBuilder\Flowbite\Component;
 
-use Lagdo\UiBuilder\Component\Base\TableDataComponent as BaseComponent;
+use Lagdo\UiBuilder\Component\Base\TableDataCellComponent as BaseComponent;
 
 use function get_class;
 
-class TableDataComponent extends BaseComponent
+class TableDataCellComponent extends BaseComponent
 {
     /**
      * @return string
@@ -27,19 +27,16 @@ class TableDataComponent extends BaseComponent
      */
     protected function onBuild(): void
     {
-        parent::onBuild();
-
         $zone = $this->getZone();
         if ($zone !== '') {
             $class = match(true) {
                 $zone !== 'body' => 'px-6 py-3 font-medium',
-                $this->element()->tag() === 'td' => 'px-6 py-4',
+                // $this->element()->tag() === 'td' => 'px-6 py-4',
                 $this->parentProp(1, 'stripe', false) =>
                     'bg-neutral-secondary-soft border-b border-default',
                 default => 'px-6 py-4 font-medium text-heading whitespace-nowrap',
             };
-            $this->element()->addClass($class)
-                ->setAttribute('scope', $zone === 'head' ? 'col' : 'row');
+            $this->element()->addClass($class);
         }
     }
 }
